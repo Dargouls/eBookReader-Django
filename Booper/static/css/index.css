@@ -1,0 +1,108 @@
+body {
+	background-color: #18191a;
+}
+@media only screen and (max-width: 1700px) {
+	body {
+		/*Zerando as margens do body e colocando background*/
+		background-size: cover;
+		background-image: url("../images/book-pages\ -\ cortado.jpg");
+		background-position-y: -90%;
+		background-repeat: no-repeat;
+		/*background-color:#e0e0e0;*/
+	}
+}
+@media only screen and (min-width: 1700px) {
+	/*Para telas muito grandes*/
+	body {
+		background-size: cover;
+		background-image: url("../images/book-pages.jpg");
+		background-position-y: -8%;
+		background-repeat: no-repeat;
+	}
+}
+#conteudo {
+	background-color: #18191a;
+	height: 225px;
+}
+#interface {
+	/* div central da página*/
+	text-align: center;
+	width: 100%;
+	position: absolute;
+	top: 150px;
+}
+#botoes-selecionar-arquivo {
+	display: inline-flex;
+	transition: transform 0.5s ease-in-out;
+}
+#lerPDF {
+	/*Botão para ler um documento*/
+	padding: 0;
+	width: 400px; /*30%;*/
+	height: 150px;
+	background-color: rgb(157, 151, 253);
+	box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.3);
+	border-radius: 7px;
+	font-size: 2.187em;
+	line-height: 50px;
+	color: white;
+	text-align: center;
+	border: 2px dotted #4e446f;
+	border-right: none;
+	border-bottom-right-radius: 0;
+	border-top-right-radius: 0;
+	outline-style: none;
+	transition: background-color 0.25s ease-in-out, box-shadow 0.35s ease-out,
+		transform 0.35s ease-out;
+}
+#lerPDF:hover {
+	/*Evento ao passar o mouse em cima*/
+	background: rgb(131, 123, 243);
+	box-shadow: 0px 0px 15px 0px rgba(50, 50, 50, 0.7);
+}
+#mostrar-arquivo {
+	position: relative;
+	width: 0px;
+	height: 150px;
+	box-sizing: border-box;
+	overflow: hidden;
+	background-color: #ececec;
+	outline-style: none;
+	border: 7px solid #c7c7c7;
+	border-radius: 10px;
+	border-bottom-left-radius: 0;
+	border-top-left-radius: 0;
+	border-left: none;
+	border-top: none;
+	transition: width 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55),
+		transform 0.5s ease-in-out;
+}
+#mostrar-arquivo > p {
+	font-size: 1.3em;
+	color: black;
+}
+#mostrar-arquivo:hover {
+	background-color: rgb(226, 226, 226);
+}
+#mostrar-arquivo::before {
+	content: "";
+	position: absolute;
+	left: 40%;
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	background-color: #a2a2a200;
+	transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55),
+		background-color 0.4s ease-in-out;
+}
+#mostrar-arquivo:hover::before {
+	background-color: #9d97fd3d;
+	transform: scale(3);
+}
+.referencia {
+	font-style: italic;
+	color: #8e8e8e;
+}
+#selecionar-arquivo {
+	display: none;
+}

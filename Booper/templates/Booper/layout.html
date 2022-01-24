@@ -1,0 +1,153 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta charset="UTF-8" />
+		<link rel="stylesheet" href="{% static 'css/padraoPaginas.css' %}" />
+		<title>{% block title %} {% endblock %}EbookReader</title>
+		<!--and (orientation: portrait)-->
+		<link rel="stylesheet" href="{% static 'images/ebook.png' %}" />
+		<link rel="stylesheet" href="{% static 'images/Logo do site.png' %}" />
+		<link rel="stylesheet" href="{% static 'images/Madeira clara.png' %}" />
+		<link rel="stylesheet" href="{% static 'images/Madeira escura.jpg' %}" />
+		<link
+			rel="stylesheet"
+			href="{% static 'images/book-pages - cortado.png' %}"
+		/>
+		<link rel="shortcut icon" href="{% static 'images/ebook.png' %}" />
+		{% block head %} {% endblock %}
+	</head>
+
+	<body>
+		<header>
+			<!--Barra superior-->
+			<div id="logo" class="fixo">
+				<a id="link-logo" href="/Booper/"
+					><img
+						id="img-logo"
+						src="{% static 'images/Logo do site.png' %}"
+						alt=""
+				/></a>
+			</div>
+			<nav id="navegacao-site" class="fixo">
+				<!--Botões de navegação-->
+				<!--Celulares em modo retrato-->
+				<div id="dropdown-mobile">
+					<!--Botão com dropdown-->
+					<button
+						type="button"
+						onclick="dropbtn()"
+						class="dropbtn"
+						id="hamburguer-button"
+					>
+						<!--Botão feito sem imagem, apenas CSS-->
+						<div class="bar1"></div>
+						<div class="bar2"></div>
+						<div class="bar3"></div>
+					</button>
+					<div class="dropdownContent">
+						<!--Conteúdo do dropdown-->
+						<a href="/Booper/"><span>Início</span></a>
+						<a href="{% url 'cadastro' %}#formulario-cadastro"
+							><span>Criar conta</span></a
+						>
+						<a href="sobre.html"><span>Sobre</span></a>
+						<a href="generos.html"><span>Indicações de Livros</span></a>
+						<a href="escritores.html"><span>Hall dos escritores</span></a>
+					</div>
+				</div>
+				<!--Monitores-->
+				<ul id="botoes-navegacao">
+					<!--Lista para organizar os botões-->
+					<li class="navButton"><a href="/Booper/">Início</a></li>
+					<li class="navButton" id="dropdown">
+						<!--Botão com dropdown-->
+						<a class="dropbtn">Livros ↓</a>
+						<!--Texto do botão-->
+						<div class="dropdownContent">
+							<!--Conteúdo do dropdown-->
+							<a href="generos.html">Indicações de livros</a>
+							<a href="escritores.html">Hall dos Escritores</a>
+						</div>
+					</li>
+					<li class="navButton"><a href="sobre.html">Sobre</a></li>
+				</ul>
+			</nav>
+			{% if user.is_authenticated %}
+			<!--nav dos botões de entrar ou criar conta no site-->
+			<nav id="gerenciar-conta" class="fixo">
+				<ul id="ul-gerenciar-conta">
+					<li id="li-conta">
+						<div id="conta"></div>
+					</li>
+					<li>
+						<a class="botoesLogin" id="login" href="accounts/login"
+							><span>{{ request.user.username }}</span></a
+						>
+					</li>
+					<li>
+						<a class="botoesLogin" id="cadastro" href="{% url 'logout' %}"
+							><span>Sair</span></a
+						>
+						<!--#formulario-cadastro>-->
+					</li>
+				</ul>
+			</nav>
+			{% else %}
+			<nav id="gerenciar-conta" class="fixo">
+				<ul id="ul-gerenciar-conta">
+					<li id="li-conta">
+						<div id="conta"></div>
+					</li>
+					<li>
+						<a class="botoesLogin" id="login" href="accounts/login"
+							><span>Entrar</span></a
+						>
+					</li>
+					<li>
+						<a class="botoesLogin" id="cadastro" href="{% url 'cadastro' %}"
+							><span>Criar conta</span></a
+						>
+						<!--#formulario-cadastro>-->
+					</li>
+				</ul>
+			</nav>
+			{% endif %}
+		</header>
+
+		{% block body %} {% endblock %}
+
+		<footer>
+			<ul>
+				<!--Adicionar botão do github para dispositivos menores-->
+				<li><span>© EbookReader 2020</span></li>
+				<li id="email"><span>SAC: SuporteAL@hotmail.com</span></li>
+				<li id="link-github">
+					<a
+						class="link"
+						target="_blank"
+						href="https://github.com/JosivaldoGabriel/Projeto_Web"
+					>
+						Link para o repositório no Github</a
+					>
+				</li>
+				<li id="follow-github">
+					<a
+						target="_blank"
+						href="https://github.com/JosivaldoGabriel/Projeto_Web"
+					>
+						<button id="btn-github">
+							<img
+								id="img-github"
+								src="{% static 'images/github-follow-button.png' %}"
+							/>
+							<span>Github</span>
+						</button></a
+					>
+				</li>
+			</ul>
+		</footer>
+		<script src="{% static 'js/padraoPaginas.js' %}"></script>
+	</body>
+</html>

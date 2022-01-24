@@ -1,0 +1,78 @@
+/*CSS da página Generos.html*/
+
+html{ /*Rolagem suave*/
+  scroll-behavior: smooth;
+}
+body{
+  margin: 0px;
+  background-color: #18191a;
+}
+/*bootstrap*/
+#list-example{
+  position: fixed;
+  right: 0%;
+  top: 30%;
+}
+#list-group-mobile{
+  flex-direction: row;
+  width: 100%;
+  text-align: center;
+}
+.noBorder{
+  margin: 0px !important;
+  border-radius: 0px !important;
+}
+.navbar-toggler{
+  border: none !important;
+}
+.noPadding{
+  padding: 0% !important;
+}
+
+.tabGenero{ /*Tabela de cada gênero*/
+  background-color: #313436;
+  padding: 2px;
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
+}
+@media screen and (min-width: 992px){
+  .tabGenero{
+    width: 40%;
+    margin-top: 5%;
+  }
+  #list-example{
+    display: initial;
+  }
+  #navbar-categorias-mobile{
+    display: none;
+  }
+}
+@media screen and (max-width: 992px){
+  .tabGenero{
+    width: 100%;
+    margin-top: 10%;
+  }
+  #list-example{
+    display: none;
+  }
+  #navbar-categorias-mobile{
+    display: initial;
+  }
+}
+
+.tabGenero li{
+  list-style: square;
+}
+th{ /*Célula cabeçalho de cada tabela (imagem)*/
+  background-position: center;
+  background-repeat: no-repeat;
+}
+td{ /*Cada célula das tabelas*/
+  border-bottom: 1px groove lightslategray;
+}
+.capaLivro{ /*A capa de fundo de cada tema ocupará o máximo possível dentro da sua célula na tabela*/
+  width: 100%;
+}
+
+h1, h2, h3 { 
+  text-align:center;
+}

@@ -1,0 +1,129 @@
+body {
+	background-color: #18191a;
+	background-image: url("../images/papel-de-parede-abstrato.png");
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+form {
+	margin: auto; /*Centralizar*/
+	margin-top: 5%;
+	padding: 20px;
+	width: 500px;
+	border-radius: 5px;
+	box-shadow: 0px 0px 50px 2px rgba(0, 0, 0, 0.4);
+	background-color: rgb(252, 252, 252);
+	text-align: center;
+	line-height: 2;
+	transition: transform 0.3s ease-in-out;
+}
+@media screen and (max-width: 992px) {
+	/*Para celulares e tablets*/
+	form {
+		width: 90%;
+	}
+	label[for="input-nome"],
+	label[for="input-email"],
+	label[for="input-senha"] {
+		/*Deixando algumas labels invisíveis*/
+		display: none;
+		font-size: 1em;
+	}
+	#area-text {
+		text-align: center;
+	}
+	.inputTexto {
+		/*inputs de digitar aumentam de tamanho*/
+		width: 90%;
+	}
+}
+
+@media screen and (min-width: 992px) {
+	#area-text {
+		/*Div que tem os inputs de digitar*/
+		text-align: right;
+	}
+	.inputTexto {
+		width: 60%;
+	}
+}
+form:focus-within {
+	transform: scale(1.05);
+}
+legend {
+	font-size: 1.2em !important;
+}
+label {
+	color: black;
+	font-size: 1.1em;
+}
+.radiobox label {
+	width: auto;
+	display: inline-block;
+}
+.inputTexto {
+	padding: 10px;
+	height: 30px;
+	border: none;
+	border-bottom: 1px solid #ccc;
+}
+.inputTexto:focus {
+	outline: none;
+	border-color: #ddbf6b;
+	transition: all 0.2s ease-in-out;
+}
+.fieldRadiobox {
+	border: 2px solid #f4f4f4;
+}
+#btn-criar-conta {
+	/*Botão de criar conta*/
+	display: block;
+	background-color: #fcfcfc;
+	height: 80px;
+	width: 100%;
+	cursor: pointer;
+	border: none;
+	outline: 0;
+	margin: 0 auto;
+	font-size: 1.2em;
+	text-align: center;
+	color: black;
+	border-radius: 5px;
+	border: 1px solid #837bf3;
+}
+#criar-conta {
+	/*div q tem o botão de criar conta*/
+	position: relative;
+	overflow: hidden;
+}
+#criar-conta::before {
+	/*A ideia é completar essa animaçãó colocando um marca página pra quando o usuário confirmar os termos*/
+	content: "";
+	position: absolute;
+	height: 80px;
+	width: 100%;
+	right: -170px;
+	background-color: #837bf3;
+	animation: anim-criar-conta 1.5s forwards;
+}
+@keyframes anim-criar-conta {
+	from {
+		right: 0%;
+	}
+	to {
+		right: 100%;
+	}
+}
+.linhaQuebra {
+	display: inline-block;
+	width: 120px;
+	border: 0;
+	border-top: 1px solid #5b59e4;
+}
+.link-entrar {
+	/*Link para caso o usuário já tenha uma conta*/
+	color: #999999;
+}
+.link-entrar a {
+	text-decoration: underline;
+}

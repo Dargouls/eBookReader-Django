@@ -1,0 +1,33 @@
+{% extends "./layout.html" %} {% load static %} {% block head %}
+<link rel="stylesheet" href="{% static 'css/leitura.css' %}" />
+<title>{% block title %}Leitura - {% endblock %}</title>
+{% endblock %} {% block body %}
+<main class="container-noBootstrap">
+	<div class="gerPag">
+		<!--Div do gerenciador de páginas-->
+		<div id="pagina-atual">
+			<p>Página atual: {{ algo }}</p>
+		</div>
+		<div>
+			<button class="passarPag" id="anterior">Página anterior</button>
+			<button class="passarPag" id="proxima">Próxima página</button>
+		</div>
+		<select class="pagSelect" id="gerPagBot">
+			<!--Gerenciador de páginas-->
+			<option value="--">Página: --</option>
+			<!--Opções-->
+		</select>
+		<select class="pagSelect" id="gerPagLer">
+			<option value="--">Modo de Visualização</option>
+			<option value="Passar páginas">Passar páginas</option>
+			<option value="Todas as páginas">Todas as páginas</option>
+		</select>
+	</div>
+	<div class="pagina"></div>
+</main>
+
+<!-- {% for i in minhaLista %}
+<p>{{ i.titulo }}</p>
+{% endfor %}
+<p>{{minhaLista}}</p> -->
+{% endblock %}

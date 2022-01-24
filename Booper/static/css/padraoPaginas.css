@@ -1,0 +1,372 @@
+/*Padrão do site*/
+
+html {
+	scroll-behavior: smooth;
+	overflow-y: overlay;
+}
+body {
+	/*grid padrão do site: header > conteúdo > footer*/
+	margin: 0%;
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: [header]100px [container]1fr [footer]35px;
+	grid-template-areas: "header header" "container container" "footer footer";
+	min-height: 100vh;
+}
+.container-noBootstrap {
+	grid-area: container;
+	margin: 0 0 100px 0;
+}
+/*Scrollbar*/
+::-webkit-scrollbar {
+	width: 15px;
+}
+::-webkit-scrollbar-track {
+	background: #00000000;
+}
+::-webkit-scrollbar-thumb {
+	background: #0000004a;
+	border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+	background: #0000008a;
+}
+
+/*Header e Nav*/
+header {
+	/*display: flex;*/
+	grid-area: header;
+	position: sticky;
+	top: 0;
+	z-index: 2;
+	background-image: url("../images/Madeira clara.png");
+	box-shadow: 0px 5px 10px 2px rgba(0, 0, 0, 0.5);
+	transition: opacity 0.2s ease-in-out, transform 0.15s ease-in-out;
+}
+#logo {
+	z-index: 3;
+}
+#img-logo {
+	/*Imagem dentro da barra de navegação*/
+	margin-left: 10px;
+	width: 15em;
+	text-align: right;
+	transition: opacity 0.1s ease-in-out;
+}
+#gerenciar-conta {
+	right: 0;
+}
+#li-conta {
+	display: none;
+	margin: 0;
+}
+#conta {
+	width: 70px;
+	height: 70px;
+	background-color: white;
+	border-radius: 50%;
+}
+#follow-github {
+	display: none;
+}
+#img-github {
+	position: relative;
+	width: 40px;
+	margin-right: 5px;
+}
+#btn-github {
+	padding: 0px 24px 0px 0px;
+	border-radius: 50em;
+	border: none;
+	outline-style: none;
+	background-color: #151515;
+	color: white;
+}
+
+.fixo {
+	position: fixed;
+}
+/*Para monitores desktop e telas de tamanho semelhante*/
+@media screen and (min-width: 992px) {
+	#navegacao-site {
+		/*nav com os botões de navegação pelo site*/
+		width: 100%;
+		text-align: center;
+	}
+	#botoes-navegacao li {
+		/*Botões de navegação do site*/
+		margin-right: 3%;
+	}
+	#ul-gerenciar-conta {
+		display: inline-flex;
+	}
+
+	.botoesLogin {
+		white-space: nowrap; /*Para a linha não quebrar com o espaço*/
+		box-sizing: border-box;
+		text-align: center;
+		padding: 5px 30px;
+		border-radius: 5px;
+		margin-right: 10px;
+		outline: none;
+	}
+	.botoesLogin:focus {
+		border: 2px solid #7b7bdd;
+	}
+	nav a {
+		transition: all 0.2s ease-out;
+	}
+	nav a:hover {
+		color: rgb(82, 82, 82);
+	}
+	#login {
+		/*Botão de login*/
+		background-color: white;
+	}
+	#cadastro {
+		/*Botão de cadastro*/
+		background-color: #faf5b1;
+	}
+	.dropdownContent {
+		/*Para o dropdown n influenciar na posição dos outros botões do nav*/
+		position: absolute;
+	}
+	#dropdown-mobile {
+		/*Escondendo o nav q vai aparecer somente em dispositivos menores*/
+		display: none;
+	}
+}
+/*Para dispositivos menores no modo retrato*/
+@media screen and (min-width: 768px) and (max-width: 992px) {
+	header nav {
+		/*O nav irá ocupar todo a largura possível, ou seja, da imagem da logo até o final*/
+		width: 100%;
+	}
+	nav {
+		text-align: right;
+	}
+
+	#botoes-navegacao,
+	#gerenciar-conta {
+		/*Escondendo os botões de navegação quando estiver em telas menores*/
+		display: none;
+	}
+	#dropdown-mobile {
+		/*Como o div do dropdown será mostrado*/
+		display: inline-block;
+	}
+	#hamburguer-button {
+		display: inline;
+		height: 50px;
+		width: 100%;
+		margin-top: 20px;
+		outline-style: none;
+		border-style: none;
+		background-color: #ffffff00;
+	}
+	.dropdownContent {
+		/*Conteúdo do botão dropdown*/
+		margin-top: 20px;
+		width: 100%;
+		position: relative;
+		text-align: center;
+	}
+	#email {
+		display: none;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	body {
+		grid-template-rows: [header]100px [main]1fr [footer]min-content;
+	}
+	header {
+		height: 85px;
+	}
+	#img-logo {
+		/*Imagem dentro da barra de navegação*/
+		margin-left: 10px;
+		margin-top: 10px;
+		width: 10em;
+		text-align: right;
+	}
+	header nav {
+		/*O nav irá ocupar todo a largura possível, ou seja, da imagem da logo até o final*/
+		width: 100%;
+	}
+	nav {
+		text-align: right;
+	}
+
+	#botoes-navegacao,
+	#gerenciar-conta {
+		/*Escondendo os botões de navegação quando estiver em telas menores*/
+		display: none;
+	}
+	#dropdown-mobile {
+		/*Como o div do dropdown será mostrado*/
+		display: inline-block;
+	}
+	#hamburguer-button {
+		display: inline;
+		height: 50px;
+		width: 100%;
+		margin-top: 20px;
+		outline-style: none;
+		border-style: none;
+		background-color: rgba(255, 255, 255, 0);
+	}
+	.dropdownContent {
+		/*Conteúdo do botão dropdown*/
+		margin-top: 20px;
+		width: 100%;
+		position: relative;
+		text-align: center;
+	}
+	#email {
+		display: none;
+	}
+	#link-github {
+		display: none;
+	}
+	#follow-github {
+		display: initial;
+	}
+}
+
+header li,
+.footer li,
+.footerFixo li {
+	/*formatando como todas as <li> serão posicionadas*/
+	display: inline;
+}
+
+nav li {
+	/*Definindo as fontes dos textos do <nav>*/
+	list-style: none;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+		Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+	font-size: 1.4em;
+	margin-top: 20px;
+}
+header a {
+	/*Tirando decorações dos links*/
+	color: black;
+	text-decoration: none;
+	font-weight: normal;
+}
+
+/*Botão dropdown*/
+#dropdown {
+	display: inline-block;
+	cursor: pointer;
+}
+#dropdown-mobile {
+	/*Como o div do dropdown será mostrado*/
+	white-space: nowrap; /*Para a linha não quebrar com o espaço*/
+	width: 50px;
+	transition: width 0.3s ease-in-out;
+}
+.dropdownContent {
+	/*Conteúdo do botão dropdown*/
+	display: none;
+	overflow: hidden;
+	z-index: 1; /*Normalmente n seria preciso, mas sem isso o drop n está sobrepondo o bootstrap*/
+	background-color: #313030;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+.dropdownContent a {
+	/*Links do botão dropdown*/
+	color: rgb(230, 230, 230);
+	font-size: 0.8em;
+	padding: 12px 16px;
+	text-decoration: none;
+	display: block;
+}
+
+.dropdownContent a:hover {
+	/*Evento ao passar o evento*/
+	background-color: #3f3f3f;
+}
+#dropdown:hover .dropdownContent {
+	/*Ativando o dropdown*/
+	display: block; /*Remover essa função da versão mobile para trabalhar com onclick*/
+}
+.bar1,
+.bar2,
+.bar3 {
+	width: 100%;
+	height: 7px;
+	border-radius: 5px;
+	background-color: black;
+	margin: 6px 0;
+}
+
+/*Fontes no geral*/
+@font-face {
+	/* Definindo uma fonte externa */
+	font-family: "Fabiana";
+	src: url("Fonts/Fabiana.ttf");
+}
+
+.fabiana-font {
+	/*Os objetos com essa classe irão receber a fonte*/
+	font-family: "Fabiana";
+	font-size: 1.875em;
+}
+p,
+h1,
+h2,
+h3 {
+	/*Lembrar de mudar o tamanho das fontes de px para em*/
+	color: rgb(230, 230, 230);
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+		Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+.fonte-preta {
+	color: #131313;
+}
+span {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+		Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+input {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+		Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+.preto {
+	color: #18191a;
+}
+
+.link {
+	/*Links do site*/ /*Lembrar de remover essa parte do código q está no CSS de outras páginas*/
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+		Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+	text-align: center;
+	color: khaki;
+	text-decoration: underline solid khaki;
+}
+footer {
+	/*Footer*/
+	grid-area: footer;
+	z-index: 2;
+	background-image: url("../images/Madeira escura.jpg");
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
+	color: white;
+}
+/*Centralização dos footers*/
+footer ul {
+	margin: 0px;
+	padding: 0%;
+	width: 100%;
+	height: 100%;
+	display: table;
+	text-align: center;
+	font-size: 1em;
+}
+footer li {
+	display: table-cell;
+	vertical-align: middle;
+} /*Fim do padrão do site*/

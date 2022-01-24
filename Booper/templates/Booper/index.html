@@ -1,0 +1,43 @@
+{% extends "./layout.html" %} {% load static %} {% block head %}
+
+<link
+	rel="stylesheet"
+	href="{% static 'css/index.css' %}"
+	media="screen and (min-width: 992px)"
+/>
+<link
+	rel="stylesheet"
+	href="{% static 'css/indexCelular.css' %}"
+	media="screen and (max-width: 992px)"
+/>
+{% endblock %} {% block body %}
+<!--Adicionando o HTML padrão do site-->
+<div class="container-noBootstrap">
+	<main id="conteudo">
+		<!--Conteúdo da página-->
+		<form method="GET" id="interface" enctype="multipart/form-data">
+			{% csrf_token %}
+			<h1>Bem-vindo</h1>
+			<p>Use o botão abaixo para <b>selecionar um Ebook</b> no seu <b>PC</b></p>
+			<div id="botoes-selecionar-arquivo">
+				<button type="button" id="lerPDF">Selecione um PDF</button>
+				<button
+					id="mostrar-arquivo"
+					onclick="lerArquivo();return false"
+					disabled
+				></button>
+			</div>
+			<input
+				type="file"
+				id="selecionar-arquivo"
+				name="arquivo-upload"
+				accept=".pdf"
+			/>
+			<p class="fonte-branca">Boa leitura :D</p>
+		</form>
+	</main>
+</div>
+
+<script src="{% static 'js/index.js' %}"></script>
+
+{% endblock %}

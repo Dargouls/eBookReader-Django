@@ -1,0 +1,72 @@
+{% extends "../Booper/layout.html" %} {% load static %} {% block head %}
+<link rel="stylesheet" href="{% static 'css/entrar.css' %}" />
+<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+<title>{% block title %}Entra sua conta - {% endblock %}</title>
+{% endblock %} {% block body %}
+<main class="container-noBootstrap">
+	<form method="POST" id="formulario-cadastro" name="formulario">
+		{% csrf_token %}
+		<div id="area-text">
+			<p>
+				<label for="input-email">E-mail: </label>
+				<input
+					class="inputTexto"
+					type="username"
+					id="input-email"
+					name="username"
+					placeholder="Username"
+				/>
+			</p>
+
+			<p>
+				<label for="input-senha">Senha: </label>
+				<input
+					class="inputTexto"
+					type="password"
+					id="input-senha"
+					name="password"
+					min="6"
+					maxlength="24"
+					placeholder="Entre 6 e 24 dígitos:"
+				/>
+			</p>
+		</div>
+		<div id="criar-conta">
+			<input
+				type="submit"
+				id="btn-criar-conta"
+				value="Entrar"
+				data-target="#ModalLongoExemplo"
+			/>
+		</div>
+		<div class="quebra">
+			<hr class="linhaQuebra" />
+			<hr class="linhaQuebra" />
+		</div>
+		<p id="erro-preencher"></p>
+		<p class="link-entrar">
+			Já tem uma conta?
+			<a href="entrar.html#formulario-entrar" class="link-entrar">Faça login</a>
+		</p>
+	</form>
+</main>
+
+<!-- <script src="{% static 'js/cadastro.js' %}"></script> -->
+
+<!--Bootstrap-->
+<script
+	src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+	integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+	crossorigin="anonymous"
+></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+	integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+	crossorigin="anonymous"
+></script>
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+	integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+	crossorigin="anonymous"
+></script>
+{% endblock %}
